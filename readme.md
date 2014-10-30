@@ -10,14 +10,13 @@ lam@cphbusiness.dk
 hsty@cphbusiness.dk
 
 
-
 You can use it to quickly bootstrap a dev environment for these projects.
 
 The seed contains a sample AngularJS/Express/Mongo application and is preconfigured to install the Angular framework and a bunch of development and testing tools for instant web development gratification.
 
 The seed app does the following:
 Shows how to wire three controllers and views together.
-Setups and simple REST API used by the main page to grab name (Donald Duck)
+Setups and simple REST API used by the main page to grab a name (Donald Duck)
 and for view 3 to grab a list of users (fetched from a MongoDB instance)
 
 
@@ -42,7 +41,9 @@ its package manager (npm) installed.  You can get them from [http://nodejs.org/]
 Clone the angular-seed repository using [git][git]:
 
 ```
-[XXXXXXXXXX TODO XXXXXXXXXXXXXXXXXXXXXXXXX).
+https://github.com/Lars-m/ExpressAngularSeed.git
+```
+
 ### Install Dependencies
 
 We have two kinds of dependencies in this project: tools and angular framework code.  The tools help
@@ -81,41 +82,7 @@ Now browse to the app at `http://localhost:3000`.
 
 TODO: Changed. Change the structure below.
 
-Backend-tests	--> Mocha test cases for backend test. Provides a sample test case to test the name REST-service
-bin		        --> Start for Express
-e2e-tests/      --> end-to-end tests
-    protractor-conf.js    --> Protractor config file
-    scenarios.js          --> end-to-end scenarios to be run by Protractor
 
-model		--> Connection and Schemas for MongoDBB
-public 		--> Expresses public folder to serve static files.
-    app/                    --> all of the source files for the ANGULARapplication
-        components/           --> all app specific modules
-            version/              --> version related components
-                version.js                 --> version module declaration and basic "version" value service
-      	   version_test.js            --> "version" value service tests
-                version-directive.js       --> custom directive that returns the current app version
-                version-directive_test.js  --> version directive tests
-                interpolate-filter.js      --> custom interpolation filter
-                interpolate-filter_test.js --> interpolate filter tests
-        view1/                --> the view1 view template and logic
-            view1.js              --> the controller logic
-            view1_test.js         --> tests of the controller
-        view2/                --> the view2 view template and logic
-            view2.html            --> the partial template
-            view2.js              --> the controller logic
-            view2_test.js         --> tests of the controller
-        view3/                --> the view2 view template and logic
-            view3.html            --> the partial template
-            view3.js              --> the controller logic
-            view3_test.js         --> tests of the controller
-
-        app.js                --> main application module
-routes		--> Routes for Express
-views		--> Views for Express
-    index.html The main page for the application
-app.js		--> Express
-karma.conf.js         --> config file for running unit tests with Karma
 
 ## Testing
 
@@ -127,13 +94,6 @@ Run the test with:
 Or set up a configuration in WebStorm to run the test from within the ide
 
 ### Running Frontend Unit Tests
-The seed app comes preconfigured with frontreKarma Test Runner][karma]. We provide a Karma
-configuration file to run them.
-
-* the configuration is found at `karma.conf.js`
-* the unit tests are found next to the code they are testing and are named as `..._test.js`.
-
-The easiest way to run the unit tests is to use the supplied npm script:
 
 ```
 npm test
