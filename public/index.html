@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="myAppRename" ng-controller="AppCtrl">
 <head>
   <meta charset="utf8"/>
   <base href="/"/>
-  <title><%= title%></title>
+  <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css"/>
   <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css">
 </head>
@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><%= title%></a>
+        <a class="navbar-brand" href="#">{{title}}</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
@@ -33,19 +33,23 @@
   </nav>
 
   <div class="container">
-    <h3 ng-controller="AppCtrl">Hello from: {{name}}</h3>
+    <h3 ng-controller="NameCtrl">Hello from: {{name}}</h3>
     <div ng-view="ng-view"></div>
   </div>
-
-  <script src="vendor/angular/angular.js"></script>
-  <script src="vendor/angular-route/angular-route.js"></script>
-  <script src="app/app.js"></script>
-  <script src="app/view1/view1.js"></script>
-  <script src="app/view2/view2.js"></script>
-  <script src="app/view3/view3.js"></script>
-  <script src="app/components/controllers.js"></script>
-  <script src="app/components/version/version.js"></script>
-  <script src="app/components/version/version-directive.js"></script>
-  <script src="app/components/version/interpolate-filter.js"></script>
+</div>
+<script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-route/angular-route.js"></script>
+<script src="app/app.js"></script>
+<script src="app/view1/view1.js"></script>
+<script src="app/view2/view2.js"></script>
+<script src="app/view3/view3.js"></script>
+<script src="app/components/controllers.js"></script>
+<script src="app/components/directives.js"></script>
+<script src="app/components/factories.js"></script>
+<script src="app/components/services.js"></script>
+<script src="app/components/filters.js"></script>
+<script src="app/components/version/version.js"></script>
+<script src="app/components/version/version-directive.js"></script>
+<script src="app/components/version/interpolate-filter.js"></script>
 </body>
 </html>

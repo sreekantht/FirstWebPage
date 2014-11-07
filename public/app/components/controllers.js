@@ -1,9 +1,11 @@
-angular.module('myApp.controllers', []).
-  controller('AppCtrl', function ($scope, $http) {
-
+angular.module('myAppRename.controllers', []).
+  controller('AppCtrl', function ($scope) {
+    $scope.title = "Demo Angular, Express and MongoDb";
+  })
+  .controller('NameCtrl', function ($scope, $http) {
     $http({
       method: 'GET',
-      url: '/api/name'
+      url: 'api/name'
     }).
       success(function (data, status, headers, config) {
         $scope.name = data.name;
@@ -11,15 +13,9 @@ angular.module('myApp.controllers', []).
       error(function (data, status, headers, config) {
         $scope.name = 'Error!';
       });
-
-  }).
-  controller('MyCtrl1', function ($scope) {
-    // write Ctrl here
-
-  }).
-  controller('MyCtrl2', function ($scope) {
-    // write Ctrl here
-
+  })
+  .controller('MyCtrl2', function ($scope) {
+    // write MyCtrl2 here
   });
 
 

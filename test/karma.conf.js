@@ -9,24 +9,25 @@ module.exports = function(config){
       'public/vendor/angular-mocks/angular-mocks.js',
       'public/app/*.js',
       'public/app/components/**/*.js',
-      'test/karma-tests/app/components/**/*.js',
+      'public/app/components/*.js',
       'public/app/view*/**/*.js',
-      'test/karma-tests//app/view*/**/*.js'
+      'test/karma-tests//app/view*/**/*.js',
+      'test/karma-tests//app/components/*.js',
     ],
 
     autoWatch : true,
 
-    frameworks: ['mocha', 'chai'],
+    autoWatch : true,
 
-    browsers : ['Chrome', 'Firefox'],
+    frameworks: ['jasmine'],
+
+    browsers : ['Chrome'],
 
     plugins : [
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            'karma-mocha',
-            'karma-chai',
-            'karma-junit-reporter'
-            ],
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-jasmine'
+    ],
 
     junitReporter : {
       outputFile: 'test_out/unit.xml',

@@ -4,4 +4,13 @@
 <p style="color: #105cb6">
   Showing of 'interpolate' filter:
   {{ 'Current version is v %VERSION%.' | interpolate }}
+  <br/>
+  Showing of 'checkmark" filter:
+  True: {{true | checkmark}}, False {{false | checkmark}}
+  <br/>
+  <p>{{infoFactory}}</p>
+  <p>{{infoService}}</p>
+  <br/>
+  The links below are inserted via a custom directive:
+  <div angular-links></div>
 </p>
