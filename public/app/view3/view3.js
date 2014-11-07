@@ -18,7 +18,6 @@ angular.module('myApp.view3', ['ngRoute'])
         $scope.users = data;
       }).
       error(function (data, status, headers, config) {
-        console.log("ErrorXXX:"+data);
         $scope.error = data;
       });
 });
