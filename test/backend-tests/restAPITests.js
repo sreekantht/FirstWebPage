@@ -8,7 +8,7 @@ var testServer;
 var mongoose = require("mongoose");
 var User = mongoose.model("User");
 
-describe('rest api for name', function () {
+describe('REST API for /user', function () {
   //Start the Server before the TESTS
   before(function (done) {
     testServer = app.listen(testPort, function () {
