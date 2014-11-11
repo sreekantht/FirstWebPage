@@ -14,8 +14,15 @@ Start mongo.exe and do:
   db.testusers.insert({userName : "Anders", email :"aka@cphbusiness.dk",pw: "test",created : new Date()})
 
 */
+var dbURI;
 
-var dbURI = 'mongodb://localhost/testdb';
+//This is set by the backend tests
+if( typeof global.TEST_DATABASE != "undefined" ) {
+  dbURI = global.TEST_DATABASE;
+}
+else{
+  dbURI = 'mongodb://localhost/testdb';
+}
 
 mongoose.connect(dbURI);
 

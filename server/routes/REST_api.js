@@ -1,13 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET A HardCoded name */
-router.get('/name', function(req, res) {
-  res.json({
-    name: 'Donald Duck'
-  });
-});
-
 var mongoose = require('mongoose');
 var user = mongoose.model('User');
 
@@ -20,7 +13,7 @@ router.get('/user', function(req, res) {
   }
   user.find({}, function (err, users) {
     if (err) {
-      res.status(err.status || 500);
+      res.status(err.status || 400);
       res.end(JSON.stringify({error: err.toString()}));
       return;
     }
