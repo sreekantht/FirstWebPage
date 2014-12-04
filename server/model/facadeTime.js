@@ -20,8 +20,8 @@ function getAllTeams(callback) {
         });
 }
 
-function getAllCommentsByTeamId(name,callback) {
-    model.CommentsModel.find({team: name})
+function getAllCommentsByTeamId(teamName,callback) {
+    model.CommentsModel.find({team: teamName})
         .exec(function (err, comments) {
             if (err) {
 
@@ -32,8 +32,7 @@ function getAllCommentsByTeamId(name,callback) {
 }
 
 function getTeamById(teamName, callback) {
-    model.CommentsModel.find({team: teamName})
-        .populate('team')
+    model.TeamsModel.find({teamName: teamName})
         .exec(function (err, details) {
             if (err) {
                 callback(err);
@@ -72,7 +71,7 @@ function updateComment(comment, callback){
     model.CommentsModel.update({_id : comment._id}, {$set: {comm : comment.comm}}).exec();
 }
 
-model.exports = {
+exports.facade = {
     getAllTeams : getAllTeams,
     getAllCommentsByTeamId : getAllCommentsByTeamId,
     getTeamById : getTeamById,
