@@ -20,20 +20,8 @@ function getAllTeams(callback) {
         });
 }
 
-function getTeamById(teamName, callback) {
+function getAllCommentsByTeamId(teamName,callback) {
     model.CommentsModel.find({team: teamName})
-        .populate('team')
-        .exec(function (err, details) {
-            if (err) {
-                callback(err);
-            }
-            callback(null, details);
-        });
-
-}
-
-function getAllCommentsByTeamId(name,callback) {
-    model.CommentsModel.find({team: name})
         .exec(function (err, comments) {
             if (err) {
 
@@ -41,6 +29,17 @@ function getAllCommentsByTeamId(name,callback) {
             }
             callback(null, comments);
         });
+}
+
+function getTeamById(teamName, callback) {
+    model.TeamsModel.find({teamName: teamName})
+        .exec(function (err, details) {
+            if (err) {
+                callback(err);
+            }
+            callback(null, details);
+        });
+
 }
 
 function getCommentById(id, callback) {
@@ -54,30 +53,30 @@ function getCommentById(id, callback) {
 
 }
 
-//function saveOrder(comment,callback){
-//    p = new model.CommentsModel(comment);
-//    p.save(function(err,createdComment){
-//        if(err){
-//            return callback(err);
-//        }
-//        callback(null,createdComment);
-//    });
-//};
-//
-//function updateVotes(order,callback){
-//    model.TeamsModel.update({_id: order._id}, {$set: {votes : order.votes + 1}}).exec();
-//}
-//
-//function updateComment(comment, callback){
-//    model.CommentsModel.update({_id : comment._id}, {$set: {comm : comment.comm}}).exec();
-//}
+function saveOrder(comment,callback){
+    p = new model.CommentsModel(comment);
+    p.save(function(err,createdComment){
+        if(err){
+            return callback(err);
+        }
+        callback(null,createdComment);
+    });
+};
 
-model.exports = {
+function updateVotes(order,callback){
+    model.TeamsModel.update({_id: order._id}, {$set: {votes : order.votes + 1}}).exec();
+}
+
+function updateComment(comment, callback){
+    model.CommentsModel.update({_id : comment._id}, {$set: {comm : comment.comm}}).exec();
+}
+
+exports.facade = {
     getAllTeams : getAllTeams,
     getAllCommentsByTeamId : getAllCommentsByTeamId,
     getTeamById : getTeamById,
-    //saveOrder : saveOrder,
-    //updateVotes : updateVotes,
-    //updateComment :updateComment,
+    saveOrder : saveOrder,
+    updateVotes : updateVotes,
+    updateComment :updateComment,
     getCommentById : getCommentById
 }

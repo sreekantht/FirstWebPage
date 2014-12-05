@@ -51,8 +51,9 @@ process.on('SIGINT', function() {
 /** Replace this Schema with your own(s) **/
 var TeamsSchema = new mongoose.Schema({
   _id : Number,
-  teamName : String,
+  teamName :{type:String, unique:true},
   votes: Number
+    //comments : {type : String, ref : 'comments'}
 });
 
 exports.TeamsModel = mongoose.model('teams', TeamsSchema);

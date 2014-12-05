@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var weNeedThis = require('../model/facadeTime');
+var weNeedThis = require("../model/facadeTime").facade;
 
 var mongoose = require('mongoose');
 
@@ -47,7 +47,7 @@ router.get('/getComments/:teamName', function(req, res) {
     res.end("Error: "+global.mongo_error+" To see a list of users here, make sure you have started the database and set up some test users (see model-->db.js for instructions)");
     return;
   }
-  var title = req.params.team;
+  var title = req.params.teamName;
   weNeedThis.getAllCommentsByTeamId(title , function (err, wikis) {
     if (err) {
       res.status(err.status || 400);
@@ -115,7 +115,7 @@ router.put('/updateComment/:commentId', function(req, res) {
 });
 
 
-router.post('/addComment/id/:comment', function(req, res){
+router.post('/addComment/teamId/:comment', function(req, res){
   if(typeof global.mongo_error !== "undefined"){
     res.status(500);
     res.end("Error: "+global.mongo_error+" To see a list of users here, make sure you have started the database and set up some test users (see model-->db.js for instructions)");
