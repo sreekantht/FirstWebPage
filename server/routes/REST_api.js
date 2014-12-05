@@ -22,13 +22,13 @@ router.get('/teams', function(req, res) {
   });
 });
 
-router.get('/getTeam/:title', function(req, res) {
+router.get('/getTeam/:teamName', function(req, res) {
   if(typeof global.mongo_error !== "undefined"){
     res.status(500);
     res.end("Error: "+global.mongo_error+" To see a list of users here, make sure you have started the database and set up some test users (see model-->db.js for instructions)");
     return;
   }
-  var title = req.params.title;
+  var title = req.params.teamName;
   weNeedThis.getTeamById(title , function (err, wikis) {
     if (err) {
       res.status(err.status || 400);
